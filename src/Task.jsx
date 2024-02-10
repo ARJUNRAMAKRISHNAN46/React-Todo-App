@@ -1,11 +1,23 @@
 export function Task(props) {
   return (
     <div className="textDiv">
-      <input className="checkBox" type="checkbox" />
+      <div className="firstDiv">
+      <input
+        className="checkBox"
+        type="checkbox"
+        checked={props.checked}
+        onChange={() => props.toggleCheckbox(props.id)}
+      />
       <h2 className="taskName">{props.taskName}</h2>
-      <button className="deleteBtn" onClick={() => props.deleteTask(props.id)}>
-        X
+      </div>
+      <div>
+      <button className="editBtn" onClick={() => props.editTask(props.id)}>
+        Edit
       </button>
+      <button className="deleteBtn" onClick={() => props.deleteTask(props.id)}>
+        Delete
+      </button>
+      </div>
     </div>
   );
 }
